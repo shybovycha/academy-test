@@ -22,4 +22,11 @@ feature 'User index page', :devise do
     expect(page).to have_content user.email
   end
 
+  scenario 'users page should be accessible via /all_users page' do
+    user = FactoryGirl.create(:user)
+    login_as(user, scope: :user)
+    visit '/all_users'
+    expect(page).to have_content user.email
+  end
+
 end
