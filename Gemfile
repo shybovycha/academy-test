@@ -15,6 +15,7 @@ end
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'puma'
+gem 'kaminari'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
