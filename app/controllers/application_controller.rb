@@ -8,7 +8,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def devise_permitted_params
-    devise_parameter_sanitizer.for(:sign_up) << :age
-    devise_parameter_sanitizer.for(:account_update) << :age
+    [ :age, :city_id, :name ].each do |p|
+      devise_parameter_sanitizer.for(:sign_up) << p
+      devise_parameter_sanitizer.for(:account_update) << p
+    end
   end
 end

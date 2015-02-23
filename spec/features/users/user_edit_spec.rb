@@ -26,6 +26,18 @@ feature 'User edit', :devise do
     expect(page).to have_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
   end
 
+  scenario 'user changes city he lives in' do
+    user = FactoryGirl.create(:user)
+    city = FactoryGirl.create(:city)
+    login_as(user, :scope => :user)
+    visit edit_user_registration_path(user)
+    select city.name, from: 'user_city_id'
+    fill_in 'Current password', :with => user.password
+    click_button 'Update'
+    visit user_path(user)
+    expect(page).to have_content(city.name)
+  end
+
   # Scenario: User cannot edit another user's profile
   #   Given I am signed in
   #   When I try to edit another user's profile
