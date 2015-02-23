@@ -1,0 +1,7 @@
+{
+  "cities": [
+    { "name": "Kraków", "short_name": "KRK" },
+    { "name": "New York", "short_name": "NY" },
+    { "name": "Lisboa", "short_name": "LSB" }
+  ]
+}
