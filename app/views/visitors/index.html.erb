@@ -1,2 +1,6 @@
+<%= javascript_tag do %>
+    window.current_user = <%= raw current_user.to_json %>;
+<% end %>
+
 <h3>Welcome</h3>
 <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
