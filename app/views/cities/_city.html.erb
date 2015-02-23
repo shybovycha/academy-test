@@ -1,0 +1,6 @@
+<td><%= link_to city.name, city %></td>
+<td><%= link_to city.short_name, city %></td>
+<td>
+  <%= link_to 'Edit', edit_city_path(city) %> |
+  <%= link_to "Delete #{ city.short_name }", city_path(city), method: :delete, confirm: 'Are you sure?' %>
+</td>
